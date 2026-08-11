@@ -1,0 +1,4 @@
+interface:
+  display_name: "Screaming Frontend Architecture"
+  short_description: "Crea features, shared UI y layouts tipados"
+  default_prompt: "Usa $build-screaming-frontend-features para crear un módulo frontend con su arquitectura de dominio, shared UI con shadcn y layouts."
