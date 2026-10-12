@@ -19,6 +19,9 @@ Construir slices verticales cuyo árbol y vocabulario expresen el negocio. Mante
    - Para otro framework, conservar las capas de dominio y adaptar únicamente sus límites de transporte y routing.
 5. Leer siempre [architecture.md](references/architecture.md). Leer [feature-blueprint.md](references/feature-blueprint.md) al crear un módulo o una vertical completa.
 6. Leer [shared-ui-layouts.md](references/shared-ui-layouts.md) al iniciar el proyecto o tocar `shared/`, shadcn, estilos/tokens, providers, navegación, shells o layouts.
+7. Leer [forms.md](references/forms.md) al crear o modificar formularios, hooks de creación/actualización o campos.
+
+Si algún archivo de `references/` no existe en la instalación local (instalación parcial), no continuar sin él: obtenerlo desde `https://raw.githubusercontent.com/aledu944/build-screaming-frontend-features/main/references/<archivo>` y avisar al usuario de que reinstale con `npx skills add aledu944/build-screaming-frontend-features`.
 
 No reemplazar dependencias, estilos globales, primitivas UI o estrategia de datos sin que la tarea lo exija. Preservar cambios ajenos y limitar la edición al slice solicitado.
 
@@ -61,6 +64,8 @@ Completar una vertical funcional antes de abrir otra. Conectar lectura, formular
 - Validar siempre forms, URL params y entradas de mutación en runtime; validar también responses externas cuando la fuente, el riesgo o la convención del proyecto lo requieran. TypeScript por sí solo no valida.
 - Tratar cada server function/action como endpoint público: autenticar y autorizar dentro del handler o middleware.
 - Mantener los hooks libres de JSX y los componentes libres de detalles de transporte.
+- Construir formularios con React Hook Form: `useCreatePatient` devuelve `createForm`, `handleCreate` e `isCreating`; `useUpdatePatient` devuelve `updateForm`, `handleUpdate` e `isUpdating`. El componente de formulario recibe `form`, `submitLabel`, `onSubmit`, `onCancel` e `isPending` por props.
+- Escribir cada campo con `Controller` + `Field` + `FieldLabel` + control + `FieldError`; no usar `FieldDescription` y preferir `InputGroup` cuando el campo lleve íconos (detalle en [forms.md](references/forms.md)).
 - Nombrar hooks por intención: `usePatients`, `usePatientsFilters`, `useCreatePatient`, `useUpdatePatient`, `usePatientStatus`.
 - Conservar estado de UI efímero local al componente; mover a hook la lógica reutilizable o el workflow con efectos.
 - Subir código a `shared/` solo cuando sea verdaderamente agnóstico al dominio y usado por más de un feature.
@@ -81,7 +86,7 @@ Confirmar antes de entregar:
 - responses externos tipados y mapeados;
 - fechas, nullables, enums y campos derivados normalizados;
 - autorización presente en límites privados;
-- formularios conectados al schema correcto;
+- formularios conectados al schema correcto y alineados con la anatomía de `forms.md`;
 - invalidación o revalidación después de mutaciones;
 - estados de carga, error, vacío y éxito tratados;
 - routes/pages sin absorber responsabilidades de hooks o servidor.

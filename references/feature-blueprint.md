@@ -194,9 +194,9 @@ PatientForm
 
 Asignar responsabilidades:
 
-- `PatientForm`: campos, errores visuales y botones.
-- `useCreatePatient`: defaults de alta, submit, pending, feedback e invalidación.
-- `useUpdatePatient`: conversión entity a form defaults, resincronización y submit.
+- `PatientForm`: campos, errores visuales y botones; recibe por props `form`, `submitLabel`, `onSubmit`, `onCancel` e `isPending` (ver [forms.md](forms.md)).
+- `useCreatePatient`: defaults de alta, `createForm`, `handleCreate`, `isCreating`, feedback e invalidación.
+- `useUpdatePatient`: conversión entity a form defaults, resincronización, `updateForm`, `handleUpdate` e `isUpdating`.
 - server function/action: auth, validación no confiable, I/O, mapper y error sanitizado.
 - dialog: estado open/close puramente visual.
 

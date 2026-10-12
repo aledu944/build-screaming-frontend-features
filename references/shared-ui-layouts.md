@@ -53,7 +53,7 @@ Aplicar estas responsabilidades:
 
 | Ubicación | Responsabilidad | Ejemplos |
 |---|---|---|
-| `components/ui` | Primitivas accesibles y variantes base | Button, Dialog, Field, Table |
+| `components/ui` | Primitivas accesibles y variantes base | Button, Dialog, Field, InputGroup, Table |
 | `components` | Composiciones neutrales sobre primitivas | DatePicker, HeaderPage, EmptyState |
 | `layout` | Regiones persistentes del shell | AppBar, AppSidebar, AuthShell |
 | `constants` | Config estática transversal | items de navegación, metadata de app |

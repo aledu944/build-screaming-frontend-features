@@ -131,7 +131,7 @@ Elegir la integración ya usada por el proyecto:
 
 - Usar `<form action={serverAction}>`, `useActionState` y `useFormStatus` para progressive enhancement y flujo nativo.
 - Usar React Hook Form + Zod en un Client Component cuando exista validación interactiva compleja; volver a validar en la acción.
-- Encapsular form, estado pending, feedback y callback visual en `useCreatePatient`/`useUpdatePatient` si el patrón de hooks ya existe.
+- Encapsular form, estado pending, feedback y callback visual en `useCreatePatient`/`useUpdatePatient` si el patrón de hooks ya existe, con el contrato de [forms.md](forms.md).
 
 No hacer que la acción muestre toast o controle dialogs; devolver un resultado serializable y dejar esos efectos al hook/componente.
 
