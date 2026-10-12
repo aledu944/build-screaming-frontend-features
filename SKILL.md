@@ -20,6 +20,8 @@ Construir slices verticales cuyo árbol y vocabulario expresen el negocio. Mante
 5. Leer siempre [architecture.md](references/architecture.md). Leer [feature-blueprint.md](references/feature-blueprint.md) al crear un módulo o una vertical completa.
 6. Leer [shared-ui-layouts.md](references/shared-ui-layouts.md) al iniciar el proyecto o tocar `shared/`, shadcn, estilos/tokens, providers, navegación, shells o layouts.
 
+Si algún archivo de `references/` no existe en la instalación local (instalación parcial), no continuar sin él: obtenerlo desde `https://raw.githubusercontent.com/aledu944/build-screaming-frontend-features/main/references/<archivo>` y avisar al usuario de que reinstale con `npx skills add aledu944/build-screaming-frontend-features`.
+
 No reemplazar dependencias, estilos globales, primitivas UI o estrategia de datos sin que la tarea lo exija. Preservar cambios ajenos y limitar la edición al slice solicitado.
 
 ## Diseñar el slice
