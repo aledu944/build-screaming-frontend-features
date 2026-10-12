@@ -112,9 +112,9 @@ Envolverla en un hook enfocado cuando la invoque UI interactiva:
 ```ts
 export const useUpdatePatient = ({ patient, onSuccess }: Options) => {
   const router = useRouter()
-  const form = useForm<PatientUpdateInput>({
-    resolver: zodResolver(patientUpdateSchema),
-    defaultValues: patientToUpdateForm(patient),
+  const updateForm = useForm<PatientFormValues>({
+    resolver: zodResolver(patientFormSchema),
+    defaultValues: patientToFormValues(patient),
   })
 
   const mutation = useMutation({
@@ -126,14 +126,16 @@ export const useUpdatePatient = ({ patient, onSuccess }: Options) => {
   })
 
   return {
-    form,
+    updateForm,
     isUpdating: mutation.isPending,
-    submit: form.handleSubmit((values) =>
+    handleUpdate: updateForm.handleSubmit((values) =>
       mutation.mutateAsync({ data: { ...values, id: patient.id } }),
     ),
   }
 }
 ```
+
+Seguir [forms.md](forms.md) para el contrato completo de formularios (hook de creación, `PatientForm` y anatomía de campos).
 
 Usar el resultado y la estrategia de errores ya establecidos por el repositorio. Elegir una sola política por área:
 

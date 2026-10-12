@@ -20,6 +20,7 @@ agents/openai.yaml
 references/
   architecture.md
   feature-blueprint.md
+  forms.md
   nextjs-app-router.md
   shared-ui-layouts.md
   tanstack-start.md

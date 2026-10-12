@@ -190,8 +190,8 @@ Usar un hook por workflow y responsabilidad:
 
 - `usePatients`: orquestar el listado cuando la estrategia local use Query/client fetching.
 - `usePatientsFilters`: leer/escribir búsqueda, filtros, orden y paginación; preferir URL cuando deban ser compartibles y sobrevivir refresh.
-- `useCreatePatient`: poseer schema resolver, form, mutation, feedback, invalidación y callback de éxito de la creación.
-- `useUpdatePatient`: sincronizar defaults de edición, form y mutation de actualización.
+- `useCreatePatient`: poseer schema resolver, mutation, feedback, invalidación y callback de éxito de la creación; devolver `{ createForm, handleCreate, isCreating }`.
+- `useUpdatePatient`: sincronizar defaults de edición y mutation de actualización; devolver `{ updateForm, handleUpdate, isUpdating }`.
 - `usePatientStatus`: cambiar solamente estado activo/inactivo.
 
 No crear un hook monolítico con list/create/update/delete y todos los formularios. No mover automáticamente `isDialogOpen` a un hook de dominio: mantener estado puramente visual dentro del dialog o trigger.
@@ -202,7 +202,7 @@ Permitir que un componente genérico dentro del feature, como `PatientForm`, sea
 
 Conectar React Hook Form al mismo schema usado en el boundary de mutación. Mantener defaults y conversión `entity -> form values` en el hook o mapper de formulario, especialmente para fechas, null y campos ocultos.
 
-Pasar al componente solo `form`, `onSubmit`, `isPending` y callbacks/labels visuales necesarios. Evitar que el componente importe directamente la función de servidor.
+Pasar al componente solo `form` (`createForm` o `updateForm`), `onSubmit`, `onCancel`, `isPending` y labels visuales (`submitLabel`). Evitar que el componente importe directamente la función de servidor. Seguir [forms.md](forms.md) para los hooks, el componente y la anatomía de campos (`Controller` + `Field`, sin `FieldDescription`, `InputGroup` para íconos).
 
 ### Listados
 
